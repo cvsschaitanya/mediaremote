@@ -1,0 +1,4 @@
+pyautogui
+ipykernel
+flask
+qrcode

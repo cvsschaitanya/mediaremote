@@ -1,0 +1,6 @@
+#!/bin/bash
+script_path=$(dirname "${BASH_SOURCE[0]}")
+venv_path="$script_path/venv"
+
+. "$venv_path/bin/activate"
+
