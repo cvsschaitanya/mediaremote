@@ -1,2 +1,4 @@
 #!/bin/bash
-venv/bin/python src/server/server.py
+
+base_dir=$(dirname $0)
+"$base_dir/venv/bin/python" "$base_dir/src/server/server.py"
