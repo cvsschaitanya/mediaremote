@@ -2,11 +2,11 @@ from flask import Flask, jsonify, send_from_directory, request
 from flask_socketio import SocketIO
 import os, sys
 from actions import simple_actions, mouse_move_action
-
+from flask_cors import CORS
 from info import generate_qr_code
 
 app = Flask(__name__)
-
+CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 @socketio.on("mouse_move")
