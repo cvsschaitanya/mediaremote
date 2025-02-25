@@ -3,3 +3,4 @@ ipykernel
 flask
 flask_cors
 qrcode
+flask-socketio

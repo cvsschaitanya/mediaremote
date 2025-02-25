@@ -16,3 +16,11 @@ class MouseMoveAction(Action):
         except Exception as e:
             print(f"MouseMoveAction: failed to move mouse - {e}")
             return -1
+    
+    def call(self, x, y):
+        try:
+            pg.moveRel(x, y)
+            return 0
+        except Exception as e:
+            print(f"MouseMoveAction: failed to move mouse - {e}")
+            return -1
