@@ -1,3 +1,3 @@
 class Action:
-    def call(self):
+    def call(self, *args, **kwargs):
         pass

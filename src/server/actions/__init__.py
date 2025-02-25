@@ -1,6 +1,7 @@
 import sys, os
 import importlib.util
 from .KeyboardAction import KeyboardAction
+from .MouseMoveAction import MouseMoveAction
 
 
 def add_custom_actions():
@@ -33,7 +34,7 @@ def add_custom_actions():
     print(f"imported {len(custom_actions)} custom actions")
     return custom_actions
 
-available_actions = {
+simple_actions = {
     key: KeyboardAction(key)
     for key in [
         "left",
@@ -43,4 +44,6 @@ available_actions = {
     ]
 }
 
-available_actions.update(add_custom_actions())
+simple_actions.update(add_custom_actions())
+
+mouse_move_action = MouseMoveAction()
