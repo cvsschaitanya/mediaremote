@@ -4,6 +4,10 @@ import os, sys
 from actions import simple_actions, mouse_move_action
 from flask_cors import CORS
 from info import generate_qr_code
+import threading
+
+from client import start_http_server
+
 
 app = Flask(__name__)
 CORS(app)
@@ -57,6 +61,11 @@ def index():
 
 if __name__ == '__main__':
 
-    port = int(os.getenv('PORT', 9000))
-    generate_qr_code(port)
-    socketio.run(app, host='0.0.0.0', port=port)
+    # Run the ui in a separate thread
+    ui_thread = threading.Thread(target=start_http_server)
+    ui_thread.start()
+
+    # Additional code can be run here
+    print("Server is running in a separate thread.")
+    socketio.run(app, host='0.0.0.0', port=9000)
+    
