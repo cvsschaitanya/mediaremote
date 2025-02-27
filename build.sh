@@ -1,14 +1,23 @@
-get_build_deps() {
-    GT=1740607841
+get_frontend() {
+    GT=1740680779
 
-    curl -O https://raw.githubusercontent.com/cvsschaitanya/mediaremote-client/releases/build.${GT}.zip
+    rm -rf src/client
+    mkdir -p src/client
+    pushd src/client
+    
+    curl -o frontend-build.zip https://raw.githubusercontent.com/cvsschaitanya/mediaremote-client/releases/build.$GT.zip
 
-    unzip -oq build.${GT}.zip -d ./client
+    echo "Downloaded build with following checksum"
+    cksum frontend-build.zip
+    
+    unzip -o frontend-build.zip -d ./
+
+    rm frontend-build.zip
+    
+    popd
 }
 
 ./setup_venv.sh
-. ./activate
-get_build_deps
+get_frontend
 
-pyinstaller mediaremote.spec
 

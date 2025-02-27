@@ -1,5 +1,6 @@
 
 import socket, qrcode
+import sys
 
 def get_ip_address():
     # Get the local IP address of the machine
@@ -34,5 +35,5 @@ def generate_qr_code(port):
     qr_terminal = qr.get_matrix()
     print(f"Scan this QR code with your phone to access the site at {url}:")
     for row in qr_terminal:
-        print("".join("\u2588\u2588" if cell else "  " for cell in row))
+        print("".join("\u2588\u2588" if cell else "  " for cell in row), file=sys.stderr)
 

@@ -4,5 +4,3 @@ flask
 flask_cors
 qrcode
 flask-socketio
-pyinstaller
-eventlet
