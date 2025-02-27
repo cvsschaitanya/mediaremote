@@ -6,12 +6,12 @@ from flask_cors import CORS
 from info import generate_qr_code
 import threading
 
-from client import start_http_server
+from ui_server import start_http_server
 
 
 app = Flask(__name__)
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 @socketio.on("mouse_move")
 def handle_mouse_move(data):
