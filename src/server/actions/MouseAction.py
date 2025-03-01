@@ -1,11 +1,12 @@
 from .Action import Action
 from .MouseMoveAction import MouseMoveAction
+from .SingleClickAction import SingleClickAction
 
 class MouseAction(Action):
     def __init__(self):        
         self.actions = {
-            "move": MouseMoveAction()
-            # "moveRel": MouseAction
+            "move": MouseMoveAction(),
+            "single_click": SingleClickAction(),
         }
     
     def call(self, actionData):
