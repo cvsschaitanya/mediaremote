@@ -1,7 +1,7 @@
 import sys, os
 import importlib.util
 from .KeyboardAction import KeyboardAction
-from .MouseMoveAction import MouseMoveAction
+from .MouseAction import MouseAction
 
 
 simple_actions = {
@@ -15,4 +15,4 @@ simple_actions = {
     ]
 }
 
-mouse_move_action = MouseMoveAction()
+mouse_action = MouseAction()

@@ -1,16 +1,16 @@
 from flask import Flask, jsonify
 from flask_socketio import SocketIO
-from .actions import simple_actions, mouse_move_action
+
+from .actions import simple_actions, mouse_action
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-@socketio.on("mouse_move")
-def handle_mouse_move(data):
-    dx, dy = data["dx"], data["dy"]
-    mouse_move_action.call(dx, dy)  
+@socketio.on("mouse_action")
+def handle_mouse_move(actionData):
+    mouse_action.call(actionData)  
 
 @app.route('/keyboard/<action_name>', methods=['GET'])
 def handle_action(action_name):

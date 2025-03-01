@@ -3,11 +3,11 @@ import pyautogui as pg
 
 class MouseMoveAction(Action):
     def call(self, *args, **kwargs):
-        if len(args) not in [3]:
+        if len(args) not in [2, 3]:
             print("MouseMoveAction: invalid number of arguments")
             return -1
         
-        return self.call(*args[:3])
+        return self.call(*args)
     
     def call(self, x, y, dur):
         try:
